@@ -27,60 +27,60 @@ folders.forEach(dir =>{
     !fs.existsSync(dir) ? fs.mkdirSync(dir) : console.log(`${dir}-directory is already exists`)
 })
 
-// entranceData.forEach(studik => {
-//     const {name, gender, age} = studik;
-//     if (age >= 20 && gender === 'male') {
-//         fs.writeFile(path.join(__dirname, 'manOlder20', `${name}.json`), JSON.stringify(studik), err => {
-//             if (err) console.log(err);
-//             console.log(JSON.stringify(studik))
-//         })
-//     } else if (age < 20 && gender === 'male') {
-//         fs.writeFile(path.join(__dirname, 'manYounger20', `${name}.json`), JSON.stringify(studik), err => {
-//             if (err) console.log(err);
-//         })
-//     } else if (age >= 20 && gender === 'female') {
-//         fs.writeFile(path.join(__dirname, 'womenOlder20', `${name}.json`), JSON.stringify(studik), err => {
-//             if (err) console.log(err);
-//         })
-//     } else if (age < 20 && gender === 'female') {
-//         fs.writeFile(path.join(__dirname, 'womenYounger20', `${name}.json`), JSON.stringify(studik), err => {
-//             if (err) console.log(err);
-//         })
-//     }
-// })
-
-
-// Что с синтаксисом у свича?
-
 entranceData.forEach(studik => {
     const {name, gender, age} = studik;
-
-    switch (age, gender) {
-        case (age >= 20 && gender === 'male'): {
-            fs.writeFile(path.join(__dirname, 'manOlder20', `${name}.json`), JSON.stringify(studik), err => {
-                if (err) console.log(err);
-            })
-            break;
-        }
-        case (age < 20 && gender === 'male'): {
-            fs.writeFile(path.join(__dirname, 'manYounger20', `${name}.json`), JSON.stringify(studik), err => {
-                if (err) console.log(err);
-            })
-            break;
-        }
-        case (age >= 20 && gender === 'female'): {
-            fs.writeFile(path.join(__dirname, 'womenOlder20', `${name}.json`), JSON.stringify(studik), err => {
-                if (err) console.log(err);
-            })
-            break;
-        }
-        case (age < 20 && gender === 'female'): {
-            fs.writeFile(path.join(__dirname, 'womenYounger20', `${name}.json`), JSON.stringify(studik), err => {
-                if (err) console.log(err);
-            })
-            break;
-        }
-        default:
-            console.log('not good')
+    if (age >= 20 && gender === 'male') {
+        fs.writeFile(path.join(__dirname, 'manOlder20', `${name}.json`), JSON.stringify(studik), err => {
+            if (err) console.log(err);
+            console.log(JSON.stringify(studik))
+        })
+    } else if (age < 20 && gender === 'male') {
+        fs.writeFile(path.join(__dirname, 'manYounger20', `${name}.json`), JSON.stringify(studik), err => {
+            if (err) console.log(err);
+        })
+    } else if (age >= 20 && gender === 'female') {
+        fs.writeFile(path.join(__dirname, 'womenOlder20', `${name}.json`), JSON.stringify(studik), err => {
+            if (err) console.log(err);
+        })
+    } else if (age < 20 && gender === 'female') {
+        fs.writeFile(path.join(__dirname, 'womenYounger20', `${name}.json`), JSON.stringify(studik), err => {
+            if (err) console.log(err);
+        })
     }
 })
+
+
+// Что с синтаксисом у свича? - кейс так не работает, нельзя писать условия
+//
+// entranceData.forEach(studik => {
+//     const {name, gender, age} = studik;
+//
+//     switch (age, gender) {
+//         case (age >= 20 && gender === 'male'): {
+//             fs.writeFile(path.join(__dirname, 'manOlder20', `${name}.json`), JSON.stringify(studik), err => {
+//                 if (err) console.log(err);
+//             })
+//             break;
+//         }
+//         case (age < 20 && gender === 'male'): {
+//             fs.writeFile(path.join(__dirname, 'manYounger20', `${name}.json`), JSON.stringify(studik), err => {
+//                 if (err) console.log(err);
+//             })
+//             break;
+//         }
+//         case (age >= 20 && gender === 'female'): {
+//             fs.writeFile(path.join(__dirname, 'womenOlder20', `${name}.json`), JSON.stringify(studik), err => {
+//                 if (err) console.log(err);
+//             })
+//             break;
+//         }
+//         case (age < 20 && gender === 'female'): {
+//             fs.writeFile(path.join(__dirname, 'womenYounger20', `${name}.json`), JSON.stringify(studik), err => {
+//                 if (err) console.log(err);
+//             })
+//             break;
+//         }
+//         default:
+//             console.log('not good')
+//     }
+// })
